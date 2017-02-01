@@ -71,7 +71,7 @@
 
   }
 
-  angular.module('myApp.view3')
+  angular.module('myApp.components.romanNumbers')
       .service('romanNumeralTranslatorService', romanNumeralTranslator );
 
 })(window.angular);

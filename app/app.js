@@ -1,19 +1,28 @@
 (function (angular) {
   'use strict';
 
-// Declare app level module which depends on views, and components
   angular.module('myApp', [
-    'ngRoute',
-    'myApp.view1',
-    'myApp.view2',
-    'myApp.view3',
-    'myApp.version'
-  ]).
+    'ui.router',
 
-  config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
-    $locationProvider.hashPrefix('!');
+    'myApp.utilities',
+    'myApp.services',
 
-    $routeProvider.otherwise({redirectTo: '/view1'});
-  }]);
+    'myApp.components.romanNumbers',
+    'myApp.components.version',
+    'myApp.components.faq'
+
+  ])
+
+      .constant('API_URLS', {
+        featureToggles: 'my.domain.com/featureToggleSettings',
+        logging: 'my.domain.com/loggingService'
+      })
+
+      .config(['$locationProvider', '$urlRouterProvider', function ($locationProvider, $urlRouterProvider) {
+        $locationProvider.hashPrefix('!');
+
+        $urlRouterProvider.otherwise('/view1');
+
+      }]);
 
 })(window.angular);

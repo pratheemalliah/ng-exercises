@@ -1,4 +1,4 @@
-# Roman-Numerals
+# ng-exercises
 
 this is a sample app for learning angular development and testing patterns.
 

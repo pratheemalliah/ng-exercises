@@ -1,0 +1,40 @@
+<div class="col-lg-12 col-md-12 col-sm-12 padding-bottom-xl p-r-35"
+      ng-if="vm.QuestionsAnwsList">
+  <article >
+    <h5 class="text-gray-darker padding-top-xl padding-bottom-xl">Questions on Shopping?</h5>
+    <p class="lead"><strong>{{vm.QuestionsAnwsList.length}} Questions</strong></p>
+
+    <div class="panel-group accordion cust-info-accordion border p-l-0 top">
+      <div dir-paginate="item in vm.QuestionsAnwsList | orderBy:'faqweight' | itemsPerPage:vm.faqsPerPage" class="panel">
+        <div >
+          <a role="button" id="{{item.id}}"
+             data-toggle="collapse"
+             href="#collapse{{item.id}}"
+             data-parent=".cust-info-accordion"
+             class="accordion-nav word-wrap border collapsed p-l-0 p-r-35 bottom"
+             bring-in-viewport
+             sticky-element-selector="#navBar"
+             aria-expanded="false"
+             ng-click="accordion.collapse{{item.id}} = !accordion.collapse{{item.id}}">
+            {{item.que}}
+          </a>
+        </div>
+        <div id="collapse{{item.id}}" role="tabpanel" aria-labelledby="{{item.id}}" class="panel-collapse collapse">
+          <div
+            class="panel-body word-wrap  p-l-0 p-r-35"
+            ng-bind-html="item.ans | parseHtml"
+            ng-class="{in: accordion.collapseOne}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</div>
+<div customise-faq-pagination class="text-xs-center text-left row p-xs-l-0 p-lg-l-35">
+  <dir-pagination-controls
+    max-size="5"
+    direction-links="true"
+    boundary-links="true">
+  </dir-pagination-controls>
+</div>

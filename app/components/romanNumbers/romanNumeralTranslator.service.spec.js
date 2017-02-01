@@ -2,7 +2,7 @@
 describe('romanNumeralTranslatorService', function() {
   "use strict";
 
-  beforeEach(module('myApp.view3'));
+  beforeEach(module('myApp.components.romanNumbers'));
 
   var service;
 
