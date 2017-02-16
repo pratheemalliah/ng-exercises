@@ -11,12 +11,16 @@ module.exports = function (config) {
       'bower_components/lodash/dist/lodash.js',
       'bower_components/moment/moment.js',
 
+      'common/common.js',
+
       'components/**/*.component.js',
 
       'components/**/*.js',
 
       'utilities/*.js',
       'utilities/**/*.js',
+
+      'services/services.js',
       'services/**/*.js'
     ],
 
@@ -25,14 +29,6 @@ module.exports = function (config) {
     frameworks: ['jasmine', 'jasmine-matchers', 'sinon'],
 
     browsers: ['Chrome'],
-
-    // plugins: [
-    //   'karma-chrome-launcher',
-    //   'karma-firefox-launcher',
-    //   'karma-jasmine',
-    //   'karma-junit-reporter',
-    //   'karma-spec-reporter'
-    // ],
 
     preprocessors: {
       '**/*.html': 'ng-html2js',
@@ -45,19 +41,11 @@ module.exports = function (config) {
     },
 
     reporters: [
-      //'progress',
       'spec',
       'coverage',
-      //'html',
-      //'kjhtml',
-      'junit',
-      'failed'
+      'junit'
+      //'failed'
     ],
-
-    junitReporter: {
-      outputFile: '../test_reports/unit.xml',
-      suite: 'unit'
-    },
 
     specReporter: {
       maxLogLines: 5,         // limit number of lines logged per test
@@ -72,6 +60,12 @@ module.exports = function (config) {
       type: 'html',
       dir: '../test-reports/coverage/',
       file: 'coverage.html'
+    },
+
+    junitReporter: {
+      outputDir: '../test-reports',
+      outputFile: 'unit.xml',
+      suite: 'unit'
     }
 
   });
