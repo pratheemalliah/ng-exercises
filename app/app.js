@@ -4,6 +4,7 @@
   angular.module('myApp', [
     'ui.router',
 
+    'myApp.common',
     'myApp.utilities',
     'myApp.services',
 
@@ -12,11 +13,6 @@
     'myApp.components.faq'
 
   ])
-
-      .constant('API_URLS', {
-        featureToggles: 'my.domain.com/featureToggleSettings',
-        logging: 'my.domain.com/loggingService'
-      })
 
       .config(['$locationProvider', '$urlRouterProvider', function ($locationProvider, $urlRouterProvider) {
         $locationProvider.hashPrefix('!');
